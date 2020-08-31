@@ -1,0 +1,8 @@
+dependencies:
+  - python
+  - numpy
+  - matplotlib
+  - seaborn
+  - pandas
+  - black
+  - pytest
