@@ -1,4 +1,5 @@
 CONDA_ROOT = ~/miniconda
+CONDA = ${CONDA_ROOT}/bin/conda
 ENV_NAME = my-env
 ENV_PATH = ${CONDA_ROOT}/envs/${ENV_NAME}
 ENV_FILE = environment.yml
@@ -9,11 +10,11 @@ PIP = ${ENV_PATH}/bin/pip
 env: ${ENV_TARGET}
 
 ${ENV_TARGET}:
-	conda env create --name ${ENV_NAME} --file ${ENV_FILE}
+	${CONDA} env create --name ${ENV_NAME} --file ${ENV_FILE}
 	touch ${ENV_TARGET}
 
 update: ${ENV_FILE}
-	conda env update --name ${ENV_NAME} --file ${ENV_FILE}
+	${CONDA} env update --name ${ENV_NAME} --file ${ENV_FILE}
 
 install: setup.py
 	${PIP} install --upgrade pip
